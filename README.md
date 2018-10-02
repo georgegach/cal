@@ -9,7 +9,7 @@ Parameters
 Example:  
 ```...cal ? start=2018-12-31 & n=10```   
 
-Months always start on monday for design consistency.
+`start` always backtracks on last monday for design consistency.
 
 Demo: https://georgegach.github.io/cal?start=2018-12-31&n=10
 
