@@ -11,7 +11,7 @@ Example:
 
 Months always start on monday for design consistency.
 
-Demo: https://georgegach.github.io/cal/?n4&start=2018-12-31&n=10
+Demo: https://georgegach.github.io/cal?start=2018-12-31&n=10
 
 ![Screenshot](https://georgegach.github.io/cal/screenshot.png)
 
