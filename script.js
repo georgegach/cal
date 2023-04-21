@@ -4,62 +4,74 @@ var monthsList = [
 
     {
         name: 'Jan',
-        color: "#B2EBF2"
+        color: "#B2EBF2",
+        grayscale: "#e5e5e5", 
     },
 
     {
         name: 'Feb',
-        color: "#80CBC4"
+        color: "#80CBC4",
+        grayscale: "#d4d4d4", 
     },
     
     {
         name: 'Mar',
-        color: "#A5D6A7"
+        color: "#A5D6A7",
+        grayscale: "#f5f5f5", 
     },
 
     {
         name: 'Apr',
-        color: "#C5E1A5"
+        color: "#C5E1A5",
+        grayscale: "#e5e5e5", 
     },
     
     {
         name: 'May',
-        color: "#E6EE9C"
+        color: "#E6EE9C",
+        grayscale: "#d4d4d4", 
     },
 
     {
         name: 'June',
-        color: "#FFE082"
+        color: "#FFE082",
+        grayscale: "#f5f5f5", 
     },
 
     {
         name: 'July',
-        color: "#FFAB91"
+        color: "#FFAB91",
+        grayscale: "#e5e5e5", 
     },
 
     {
         name: 'Aug',
-        color: "#EF9A9A"
+        color: "#EF9A9A",
+        grayscale: "#d4d4d4", 
     },
 
     {
         name: 'Sep',
-        color: "#B39DDB"
+        color: "#B39DDB",
+        grayscale: "#f5f5f5", 
     },
 
     {
         name: 'Oct',
-        color: "#9FA8DA"
+        color: "#9FA8DA",
+        grayscale: "#e5e5e5", 
     },
 
     {
         name: 'Nov',
-        color: "#64B5F6"
+        color: "#64B5F6",
+        grayscale: "#d4d4d4", 
     },
 
     {
         name: 'Dec',
-        color: "#81D4FA"
+        color: "#81D4FA",
+        grayscale: "#f5f5f5", 
     }
 ]
 
@@ -82,8 +94,9 @@ function generateCalendar(days) {
     
     var global = `<div id='cal'>`
     var months = `<div class='months'>`
+    var color = getParameterByName('c') || 'color'
     for (let i = 1; i < monthsList.length; i++){
-        months += `<span class='month' style='background-color:${monthsList[i].color}'>${monthsList[i].name}</span>`
+        months += `<span class='month' style='background-color:${monthsList[i][color]}'>${monthsList[i].name}</span>`
     }
     months += `</div>`
 
@@ -103,7 +116,7 @@ function generateCalendar(days) {
             
             qdays = days.slice(i*70 + j*14, (i*70) + (j+1)*14)
             for (let j = 0; j < qdays.length; j++){
-                global += `<div class='day' style='background-color:${monthsList[qdays[j].m].color}'><span>${qdays[j].d}</span></div>`
+                global += `<div class='day' style='background-color:${monthsList[qdays[j].m][color]}'><span>${qdays[j].d}</span></div>`
             }
 
             global += `</div>`
@@ -130,7 +143,7 @@ function datesFrom(start, n) {
     var list = []
 
     // find monday
-    while (start.getDay() != 0){
+    while (start.getDay() != 1){
         start.setDate(start.getDate() - 1)
     }
 
